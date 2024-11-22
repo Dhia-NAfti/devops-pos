@@ -1,0 +1,22 @@
+# This YAML file defines a Kubernetes Deployment configuration
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: devops-pos
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: devops-pos
+  template:
+    metadata:
+      labels:
+        app: devops-pos
+    spec:
+      containers:
+        - name: devops-pos
+          image: dhiaf10/devops-pos-pp
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
+

@@ -1,0 +1,21 @@
+---
+- name: Apply Kubernetes Configuration after making changes
+  hosts: node
+  become: yes
+  tasks:
+    - name: Example task
+      command: echo "Running as root"
+
+    - name: Create and update Deployment
+      command: kubectl apply -f /home/user/config-kbs/Deployment.yml
+      register: deployment_result
+      environment:
+        KUBECONFIG: /home/user/.kube/config
+
+
+    - name: Create New Service
+      command: kubectl apply -f /home/user/config-kbs/Service.yml
+      register: service_result
+      environment:
+        KUBECONFIG: /home/user/.kube/config
+
