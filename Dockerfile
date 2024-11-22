@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM ubuntu:22.04
 
 # Install necessary packages and clean up cache to reduce image size
 RUN echo "Installing necessary packages and cleaning up cache..." && \
