@@ -54,7 +54,7 @@ node {
     }
 }
    
-   /* 
+   
    stage('Create Docker Image With Tag for pos-front-end') {
      withCredentials([string(credentialsId: 'github_tocken', variable: 'GITHUB_TOKEN')]) {
         sh """
