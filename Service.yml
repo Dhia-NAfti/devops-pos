@@ -1,15 +1,15 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: devops-pos
+  name: devops-pos-backend
   labels:
-    app: devops-pos
+    app: devops-pos-backend
 spec:
   ports:
     - port: 8080
       targetPort: 80
       nodePort: 31200
   selector:
-    app: devops-pos
+    app: devops-pos-backend
   type: LoadBalancer
 

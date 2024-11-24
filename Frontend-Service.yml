@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: devops-pos-frontend
+  labels:
+    app: devops-pos-frontend
+spec:
+  selector:
+    app: devops-pos-frontend
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 4200
+  type: LoadBalancer
+

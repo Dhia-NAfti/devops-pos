@@ -2,20 +2,20 @@
 kind: Deployment
 apiVersion: apps/v1
 metadata:
-  name: devops-pos
+  name:  devops-pos-backend
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: devops-pos
+      app: devops-pos-backend
   template:
     metadata:
       labels:
-        app: devops-pos
+        app: devops-pos-backend
     spec:
       containers:
-        - name: devops-pos
-          image: dhiaf10/devops-pos-pp
+        - name: devops-pos-backend
+          image: dhiaf10/devops-pos-backend:latest
           imagePullPolicy: Always
           ports:
             - containerPort: 80

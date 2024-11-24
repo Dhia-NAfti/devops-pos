@@ -4,16 +4,23 @@
   become: yes
   tasks:
 
-    - name: Create and update Deployment
+    - name: Apply Backend Deployment
       command: kubectl apply -f /home/user/config-kbs/Deployment.yml
-      register: deployment_result
       environment:
         KUBECONFIG: /home/user/.kube/config
 
-
-    - name: Create New Service
+    - name: Apply Backend Service
       command: kubectl apply -f /home/user/config-kbs/Service.yml
-      register: service_result
+      environment:
+        KUBECONFIG: /home/user/.kube/config
+
+    - name: Apply Frontend Deployment
+      command: kubectl apply -f /home/user/config-kbs/Frontend-Deployment.yml
+      environment:
+        KUBECONFIG: /home/user/.kube/config
+
+    - name: Apply Frontend Service
+      command: kubectl apply -f /home/user/config-kbs/Frontend-Service.yml
       environment:
         KUBECONFIG: /home/user/.kube/config
 

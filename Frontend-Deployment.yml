@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: devops-pos-frontend
+  labels:
+    app: devops-pos-frontend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: devops-pos-frontend
+  template:
+    metadata:
+      labels:
+        app: devops-pos-frontend
+    spec:
+      containers:
+        - name: devops-pos-frontend
+          image: dhiaf10/devops-pos-pp-frontend:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 4200
+
