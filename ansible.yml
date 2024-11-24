@@ -3,8 +3,6 @@
   hosts: node
   become: yes
   tasks:
-    - name: Example task
-      command: echo "Running as root"
 
     - name: Create and update Deployment
       command: kubectl apply -f /home/user/config-kbs/Deployment.yml

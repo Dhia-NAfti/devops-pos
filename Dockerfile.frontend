@@ -1,0 +1,24 @@
+# Use Node.js as the base image
+FROM node:18
+
+# Set the working directory in the container
+WORKDIR /app
+
+# Copy the package.json and package-lock.json files for dependency installation
+COPY pos-front/package*.json ./
+
+# Install Angular CLI globally
+RUN npm install -g @angular/cli@16.2
+
+# Install dependencies for the project
+RUN npm install
+
+# Copy the front-end source code into the container
+COPY pos-front/ .
+
+# Expose the port Angular will run on
+EXPOSE 4200
+
+# Run the Angular application
+CMD ["ng", "serve", "--host", "0.0.0.0"]
+
